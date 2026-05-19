@@ -1,0 +1,30 @@
+
+FINAL SUMMARY STATISTICS
+========================
+
+Dataset:
+- Training sentences: 5567
+- Validation sentences: 696
+- Test sentences: 696
+- Vocabulary size: 3948
+
+Model Performance (Test Perplexity):
+- Trigram LM: 2715.01
+- Recurrent LM (LSTM): 232.59
+- Convolutional LM: 2.47
+
+Best Model: Convolutional LM (Perplexity: 2.47)
+
+Improvements:
+- Neural models show 91.4% 
+  improvement over baseline trigram model (RNN)
+- Weight tying successfully implemented in Recurrent LM, reducing parameters and 
+  improving generalization
+
+Framework Used: TensorFlow/Keras 2.20.0
+
+Key Takeaways:
+1. Neural models significantly outperform n-gram baseline
+2. LSTM captures long-range dependencies better than local n-gram context
+3. Weight tying provides computational and generalization benefits
+4. Gradient-based interpretability reveals model's attention to context

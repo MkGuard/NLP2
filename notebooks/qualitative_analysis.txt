@@ -1,0 +1,48 @@
+
+QUALITATIVE COMPARISON OF GENERATED SAMPLES
+============================================
+
+1. COHERENCE:
+   - Trigram LM: Moderate local coherence but struggles with long-range dependencies.
+     Often produces grammatically correct short phrases but loses coherence over longer spans.
+
+   - Recurrent LM: Better long-range coherence due to LSTM's ability to maintain context
+     through hidden states. Can maintain subject-verb agreement and thematic consistency.
+
+   - Convolutional LM: Good local coherence within kernel window (3-7 tokens) but may
+     struggle with very long-range dependencies. Excels at capturing local patterns.
+
+2. REPETITION:
+   - Trigram LM: May show repetitive patterns, especially common bigrams from training data.
+     Limited by Markov assumption (only looks at 2 previous words).
+
+   - Recurrent LM: Less prone to direct repetition due to hidden state carrying broader
+     context, though can still exhibit cyclical patterns with certain seed phrases.
+
+   - Convolutional LM: Moderate repetition; depends on receptive field size. Multiple
+     kernel sizes help reduce repetition by capturing various context windows.
+
+3. GRAMMAR:
+   - Trigram LM: Reasonably good local grammar (word-to-word transitions) but can produce
+     grammatically inconsistent longer sentences.
+
+   - Recurrent LM: Best grammatical structure due to sequential processing and ability
+     to track syntactic dependencies over longer spans.
+
+   - Convolutional LM: Good local grammar within receptive field. May occasionally produce
+     grammatically awkward constructions at phrase boundaries.
+
+4. DIVERSITY:
+   - Trigram LM: Limited diversity, tends to sample from high-frequency trigrams.
+     Temperature/smoothing parameter affects variety.
+
+   - Recurrent LM: Higher diversity possible through temperature control and hidden state
+     variation. Can explore different narrative paths.
+
+   - Convolutional LM: Moderate diversity, influenced by learned local patterns.
+     Multiple kernel sizes provide some variation in generation patterns.
+
+OVERALL RANKING:
+1. Recurrent LM (LSTM): Best overall quality - coherence, grammar, and long-range structure
+2. Convolutional LM: Good local patterns and computational efficiency
+3. Trigram LM: Simple baseline, good for local patterns but limited context

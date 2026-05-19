@@ -1,0 +1,23 @@
+# Model weights (large files)
+models/*.h5
+models/*.weights.h5
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Serialised data (regeneratable)
+notebooks/data_splits.pkl
+notebooks/neural_results.pkl
+
+# Archives
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db

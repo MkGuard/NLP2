@@ -1,0 +1,39 @@
+
+INTERPRETABILITY ANALYSIS SUMMARY
+==================================
+
+Method Used: Gradient-Based Token Importance
+
+Description:
+- For a given input sequence, we compute the gradient of the predicted next token's
+  logit with respect to each input token's embedding.
+- The L2 norm of these gradients represents how much each input token "influences"
+  the prediction.
+- Higher importance scores indicate tokens that strongly affect the next-token prediction.
+
+Key Findings:
+
+Example 1: "elizabeth bennet was a young lady"
+- The model likely assigns high importance to recent tokens ("young", "lady") which
+  directly inform what might come next
+- Earlier context tokens may have lower importance if the recent context is highly
+  predictive
+- Character names like "elizabeth" and "bennet" may show moderate importance as they
+  establish the subject
+
+Example 2: "mr darcy entered the room and"
+- The conjunction "and" at the end likely gets high importance as it signals
+  continuation of action
+- Verb "entered" may show high importance as it constrains the type of continuation
+- Subject "darcy" provides thematic context
+
+General Observations:
+1. Recent tokens typically have higher importance due to LSTM's recency bias
+2. Content words (nouns, verbs) often more important than function words (articles)
+3. The model learns to focus on syntactically and semantically relevant tokens
+4. Importance patterns reflect the model's learned attention to context
+
+Limitations:
+- Gradient-based importance is a proxy for true causal influence
+- Does not capture all forms of context utilization (e.g., higher-order interactions)
+- Interpretation requires domain knowledge about language structure

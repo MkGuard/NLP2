@@ -1,0 +1,4 @@
+Model,Test Perplexity
+Convolutional LM,2.4691762924194336
+Recurrent LM (LSTM),232.58682250976562
+Trigram LM,2715.009739190652
